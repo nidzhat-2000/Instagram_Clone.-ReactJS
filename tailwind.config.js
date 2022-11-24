@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       colors: {
         login: "#b2dffc",
+        facebookLog: "#385185",
+        link: '#00376b'
       },
       backgroundImage: {
         "home-img":

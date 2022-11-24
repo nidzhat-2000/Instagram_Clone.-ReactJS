@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 function Input({ label, type = "text", ...props }) {
   const [show, setShow] = useState(false);
@@ -12,7 +12,7 @@ function Input({ label, type = "text", ...props }) {
     }
   }, [show]);
 
-  console.log(show);
+  // console.log(show);
 
   const handleFun = (e) => {
     e.preventDefault();
@@ -20,9 +20,9 @@ function Input({ label, type = "text", ...props }) {
   };
 
   return (
-    <label className="block relative">
+    <label className="block relative flex bg-zinc-50 border rounded-sm focus-within:border-gray-500">
       <input
-        className="bg-zinc-50 border w-full h-[38px] rounded-sm focus:border-gray-500 px-2 text-sm outline-none peer text-sm valid:pt-3"
+        className="bg-zinc-50  w-full h-[38px]   px-2 text-sm outline-none peer text-sm valid:pt-3"
         required={true}
         type={inputType}
         {...props}
@@ -31,12 +31,12 @@ function Input({ label, type = "text", ...props }) {
         {label}
       </small>
       {type === "password" && props?.value && (
-        <button
+        <div
           onClick={handleFun}
-          className="absolute top-0 right-0 h-full flex items-center text-sm font-semibold pr-2 "
+          className="h-full flex items-center text-sm font-semibold pr-2 cursor-pointer select-none"
         >
           {show ? "Hide" : "Show"}
-        </button>
+        </div>
       )}
     </label>
   );
